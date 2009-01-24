@@ -18,7 +18,6 @@ ease_actor_get_type (void)
 {
 	static GType iface_type = 0;
 
-<<<<<<< TREE
 	if (iface_type == 0)
 	{
 		static const GTypeInfo info = {
@@ -28,23 +27,9 @@ ease_actor_get_type (void)
 		};
 	  
 		iface_type = g_type_register_static (G_TYPE_INTERFACE,
-											   "EaseActor",
-											   &info, 0);
+											 "EaseActor",
+											 &info, 0);
 	}
-=======
-	if (iface_type == 0)
-	{
-		static const GTypeInfo info = {
-			sizeof (EaseActorInterface),
-			ease_actor_base_init, 
-			NULL,
-		};
-		
-		iface_type = g_type_register_static (G_TYPE_INTERFACE,
-											   "EaseActor",
-											   &info, 0);
-	}
->>>>>>> MERGE-SOURCE
 
 	return iface_type;
 }
