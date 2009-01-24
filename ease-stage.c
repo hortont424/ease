@@ -8,8 +8,8 @@
 static void ease_actor_interface_init (EaseStageInterface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (EaseActor, ease_actor, CLUTTER_TYPE_STAGE,
-			 G_IMPLEMENT_INTERFACE (EASE_TYPE_ACTOR,
-						ease_actor_interface));
+						 G_IMPLEMENT_INTERFACE (EASE_TYPE_ACTOR,
+												ease_actor_interface));
 
 static gboolean 
 ease_stage_do_message (EaseActor *self, GQuark type, gchar *message)
