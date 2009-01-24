@@ -20,11 +20,12 @@ function translate(str)
 	str = str.replace(/TextActor/g, cc);
 	str = str.replace(/text_actor/g, us);
 	str = str.replace(/TEXT_ACTOR/g, up);
+	str = str.replace(/text-actor/g, actor_name);
 	
 	return str;
 }
 
-var c_tmpl = "\n\
+var c_tmpl = "\
 #include \"ease-text-actor.h\"\n\
 #include \"ease-actor.h\"\n\
 \n\
@@ -74,7 +75,7 @@ ease_text_actor_init (EaseTextActor *self)\n\
 }\n\
 ";
 
-var h_tmpl = "\n\
+var h_tmpl = "\
 #ifndef __EASE_TEXT_ACTOR_H__\n\
 #define __EASE_TEXT_ACTOR_H__\n\
 \n\
