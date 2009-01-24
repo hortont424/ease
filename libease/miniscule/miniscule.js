@@ -17,10 +17,6 @@ var Miniscule = new Object();
 		 return s[1];
 	 };
 	 
-	 var cons = function(a, b) {
-		 return [a,b];
-	 };
-	 
 	 var firstSubExp = function(exp) {
 		 return car(cdr(exp));
 	 };
