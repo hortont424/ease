@@ -15,10 +15,10 @@ typedef struct _EaseActorInterface      EaseActorInterface;
 
 struct _EaseActorInterface
 {
-  GTypeInterface parent_iface;
+    GTypeInterface parent_iface;
 	
-  gboolean (*do_message) (EaseActor *self, GQuark type, gchar *message);
-  gchar * (*serialize) (EaseActor *self);
+    gboolean (*do_message) (EaseActor *self, GQuark type, gchar *message);
+    gchar * (*serialize) (EaseActor *self);
 };
 
 GType ease_actor_get_type (void);
@@ -27,4 +27,4 @@ gboolean ease_actor_do_message (EaseActor *self, GQuark type, gchar *message);
 gchar * ease_actor_serialize (EaseActor *self);
 
 
-#endif // __EASE_ACTOR_H__						\
+#endif // __EASE_ACTOR_H__                      \
