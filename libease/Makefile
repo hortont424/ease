@@ -1,7 +1,7 @@
 all: build-lib gir
 
 build-lib:
-	gcc -Wall -fPIC `pkg-config --cflags --libs clutter-0.9` -shared ease-text-actor.c ease-actor.c ease-stage.c ease.c -o libease.so
+	gcc -Wall -fPIC `pkg-config --cflags --libs clutter-0.9` -shared ease-image-actor.c ease-text-actor.c ease-actor.c ease-stage.c ease.c -o libease.so
 
 install:
 	cp *.so /usr/local/lib
