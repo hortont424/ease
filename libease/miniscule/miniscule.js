@@ -2,6 +2,8 @@ var Miniscule = new Object();
 
 (function()
  {
+	 var exposed = {};
+
 	 var isAtom = function(a) {
 		 return typeof a == 'string' || typeof a == 'number' ||
 			 typeof a == 'boolean';
@@ -42,7 +44,11 @@ var Miniscule = new Object();
 	 var divide = function(n, m) {
 		 return parseInt(n, 10) / parseInt(m, 10);
 	 }
-
+	 
+	 var send = function(n, m) {
+		 return (exposed[n])[m];
+	 }
+	 
 	 var atomToFunction = function(x) {
 		 if (x === '+')
 			 return plus;
@@ -52,21 +58,22 @@ var Miniscule = new Object();
 			 return times;
 		 if (x === '/')
 			 return divide;
+		 if (x === "send")
+			 return send;
 		 else
 			 return "Stay in your box";
 	 }
 
+	 Miniscule.expose = function(name, object) {
+		 exposed[name] = object;
+	 }
+	 
 	 Miniscule.value = function (exp) {
 		 return isAtom(exp) ? exp :
 		 atomToFunction(car(exp)) (
 			 Miniscule.value(firstSubExp(exp)), Miniscule.value(secondSubExp(exp)));		 
 	 }
 	 
-	 Miniscule.eval = function(exp)
-	 {
-		 return Miniscule.value(s(exp));
-	 }
-
 	 var s = function (x) {
 		 
 		 var tx = /\s*(\(|\)|[^\s()]+|$)/g,
@@ -99,6 +106,11 @@ var Miniscule = new Object();
 		 s.lastIndex = tx.lastIndex;
 		 return result;
 	 };
+
+	 Miniscule.eval = function(exp)
+	 {
+		 return Miniscule.value(s(exp));
+	 }
 
 	 Miniscule.parse = s;
 
