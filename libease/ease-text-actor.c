@@ -7,7 +7,7 @@
 
 static void ease_actor_interface_init (EaseActorInterface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (EaseTextActor, ease_text_actor, CLUTTER_TYPE_TEXT_ACTOR,
+G_DEFINE_TYPE_WITH_CODE (EaseTextActor, ease_text_actor, CLUTTER_TYPE_TEXT,
 						 G_IMPLEMENT_INTERFACE (EASE_TYPE_ACTOR,
 												ease_actor_interface_init));
 

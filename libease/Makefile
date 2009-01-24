@@ -1,5 +1,5 @@
 all:	
-	gcc -fPIC `pkg-config --cflags --libs clutter-0.9` -shared ease-actor.c ease-stage.c ease.c -o libease.so
+	gcc -fPIC `pkg-config --cflags --libs clutter-0.9` -shared ease-text-actor.c ease-actor.c ease-stage.c ease.c -o libease.so
 
 install:
 	cp *.so /usr/local/lib
