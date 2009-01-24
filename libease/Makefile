@@ -1,4 +1,4 @@
-all:	
+all: gir
 	gcc -fPIC `pkg-config --cflags --libs clutter-0.9` -shared ease-text-actor.c ease-actor.c ease-stage.c ease.c -o libease.so
 
 install:
