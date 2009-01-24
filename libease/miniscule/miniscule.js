@@ -52,6 +52,8 @@ var Miniscule = new Object();
 			 return times;
 		 if (x === '/')
 			 return divide;
+		 else
+			 return "Stay in your box";
 	 }
 
 	 Miniscule.value = function (exp) {
