@@ -26,7 +26,7 @@ ease_actor_get_type (void)
             NULL,
         };
 	  
-        iface_type = g_type_registered_static (G_TYPE_INTERFACE,
+        iface_type = g_type_register_static (G_TYPE_INTERFACE,
                                                "EaseActor",
                                                &info, 0);
     }

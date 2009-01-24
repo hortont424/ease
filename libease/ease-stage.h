@@ -18,12 +18,12 @@ typedef struct _EaseStageClass   EaseStageClass;
 
 struct _EaseStage
 {
-    GObject parent_instance;
+    ClutterStage parent_instance;
 };
 
 struct _EaseStageClass
 {
-    GObjectClass parent_class;
+    ClutterStageClass parent_class;
 };
 
 GType ease_stage_get_type (void);

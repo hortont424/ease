@@ -1,2 +1,12 @@
 all:	
-	gcc -fPIC `pkg-config --cflags --libs clutter-0.8` -shared ease-actor.c ease-stage.c -o libease.so
+	gcc -fPIC `pkg-config --cflags --libs clutter-0.8` -shared ease-actor.c ease-stage.c ease.c -o libease.so
+
+install:
+	cp *.so /usr/local/lib
+	cp *.typelib /usr/local/lib/girepository-1.0/
+
+gir:
+	g-ir-scanner -v --namespace Ease --nsversion=0.1 \
+	--add-include-path=. --include=Clutter-0.8 --library=ease \
+	--pkg clutter-0.8 --output Ease-0.1.gir *.h
+	g-ir-compiler Ease-0.1.gir -o Ease-0.1.typelib
