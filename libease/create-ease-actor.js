@@ -2,6 +2,14 @@
 
 Seed.import_namespace("Gio");
 
+if(Seed.argv.length != 3)
+{
+	Seed.print("Usage: " + Seed.argv[0] + " " + Seed.argv[1] + " new-class-name");
+	Seed.print("\n  ease-new-class-name.[c|h] will be created. You must then update");
+	Seed.print("  three pieces of code; search for ClutterText and CLUTTER_TYPE_TEXT.");
+	Seed.quit(1);
+}
+
 actor_name = Seed.argv[2];
 
 actor_names = actor_name.split("-");
