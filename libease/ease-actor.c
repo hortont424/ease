@@ -5,46 +5,61 @@
 static void
 ease_actor_base_init (gpointer klass)
 {
-    static gboolean is_initialized = FALSE;
-    
-    if (!is_initialized)
-    {
-        is_initialized = TRUE;
-    }
+	static gboolean is_initialized = FALSE;
+	
+	if (!is_initialized)
+	{
+		is_initialized = TRUE;
+	}
 }
 
 GType
 ease_actor_get_type (void)
 {
-    static GType iface_type = 0;
+	static GType iface_type = 0;
 
-    if (iface_type == 0)
-    {
-        static const GTypeInfo info = {
-            sizeof (EaseActorInterface),
-            ease_actor_base_init, 
-            NULL,
-        };
-        
-        iface_type = g_type_register_static (G_TYPE_INTERFACE,
-                                               "EaseActor",
-                                               &info, 0);
-    }
+<<<<<<< TREE
+	if (iface_type == 0)
+	{
+		static const GTypeInfo info = {
+			sizeof (EaseActorInterface),
+			ease_actor_base_init, 
+			NULL,
+		};
+	  
+		iface_type = g_type_register_static (G_TYPE_INTERFACE,
+											   "EaseActor",
+											   &info, 0);
+	}
+=======
+	if (iface_type == 0)
+	{
+		static const GTypeInfo info = {
+			sizeof (EaseActorInterface),
+			ease_actor_base_init, 
+			NULL,
+		};
+		
+		iface_type = g_type_register_static (G_TYPE_INTERFACE,
+											   "EaseActor",
+											   &info, 0);
+	}
+>>>>>>> MERGE-SOURCE
 
-    return iface_type;
+	return iface_type;
 }
 
 gboolean ease_actor_do_message (EaseActor *self, GQuark type, gchar * message)
 {
-    g_return_if_fail (EASE_IS_ACTOR (self));
+	g_return_if_fail (EASE_IS_ACTOR (self));
   
-    EASE_ACTOR_GET_INTERFACE (self)->do_message(self, type, message);
+	EASE_ACTOR_GET_INTERFACE (self)->do_message(self, type, message);
 }
 
 gchar *ease_actor_serialize (EaseActor *self)
 {
-    g_return_if_fail (EASE_IS_ACTOR (self));
+	g_return_if_fail (EASE_IS_ACTOR (self));
   
-    EASE_ACTOR_GET_INTERFACE(self)->serialize(self);
+	EASE_ACTOR_GET_INTERFACE(self)->serialize(self);
 }
 
