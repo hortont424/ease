@@ -6,7 +6,7 @@ static void
 ease_actor_base_init (gpointer klass)
 {
     static gboolean is_initialized = FALSE;
-	
+    
     if (!is_initialized)
     {
         is_initialized = TRUE;
@@ -25,7 +25,7 @@ ease_actor_get_type (void)
             ease_actor_base_init, 
             NULL,
         };
-	  
+        
         iface_type = g_type_register_static (G_TYPE_INTERFACE,
                                                "EaseActor",
                                                &info, 0);
