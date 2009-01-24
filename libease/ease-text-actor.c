@@ -11,12 +11,12 @@ G_DEFINE_TYPE_WITH_CODE (EaseTextActor, ease_text_actor, CLUTTER_TYPE_TEXT,
 						 G_IMPLEMENT_INTERFACE (EASE_TYPE_ACTOR,
 												ease_actor_interface_init));
 
-static gboolean 
+static GValue *
 ease_text_actor_do_message (EaseActor *self, GQuark type, gchar *message)
 {
 	g_print ("TODO!\n");
 	
-	return FALSE;
+	return NULL;
 }
 
 static gchar * 

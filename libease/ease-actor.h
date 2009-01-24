@@ -17,13 +17,13 @@ struct _EaseActorInterface
 {
     GTypeInterface parent_iface;
     
-    gboolean (*do_message) (EaseActor *self, GQuark type, gchar *message);
+    GValue * (*do_message) (EaseActor *self, GQuark type, gchar *message);
     gchar * (*serialize) (EaseActor *self);
 };
 
 GType ease_actor_get_type (void);
 
-gboolean ease_actor_do_message (EaseActor *self, GQuark type, gchar *message);
+GValue * ease_actor_do_message (EaseActor *self, GQuark type, gchar *message);
 gchar * ease_actor_serialize (EaseActor *self);
 
 

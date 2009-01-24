@@ -34,17 +34,17 @@ ease_actor_get_type (void)
 	return iface_type;
 }
 
-gboolean ease_actor_do_message (EaseActor *self, GQuark type, gchar * message)
+GValue * ease_actor_do_message (EaseActor *self, GQuark type, gchar * message)
 {
-	g_return_if_fail (EASE_IS_ACTOR (self));
+	g_return_val_if_fail (EASE_IS_ACTOR (self), NULL);
   
-	EASE_ACTOR_GET_INTERFACE (self)->do_message(self, type, message);
+	return EASE_ACTOR_GET_INTERFACE (self)->do_message(self, type, message);
 }
 
 gchar *ease_actor_serialize (EaseActor *self)
 {
-	g_return_if_fail (EASE_IS_ACTOR (self));
+	g_return_val_if_fail (EASE_IS_ACTOR (self), NULL);
   
-	EASE_ACTOR_GET_INTERFACE(self)->serialize(self);
+	return EASE_ACTOR_GET_INTERFACE(self)->serialize(self);
 }
 
