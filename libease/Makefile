@@ -9,6 +9,6 @@ install:
 
 gir: build-lib
 	g-ir-scanner -v --namespace Ease --nsversion=0.1 \
-	--add-include-path=. --include=Clutter-0.8 --library=ease \
-	--pkg clutter-0.8 --output Ease-0.1.gir *.h
+	--add-include-path=. --include=Clutter-0.9 --library=ease \
+	--pkg clutter-0.9 --output Ease-0.1.gir *.h
 	g-ir-compiler Ease-0.1.gir -o Ease-0.1.typelib
