@@ -4,7 +4,7 @@
 #include <glib-object.h>
 #include <clutter/clutter.h>
 
-#define EASE_TYPE_STAGE			  (ease_stage_get_type ())
+#define EASE_TYPE_STAGE				(ease_stage_get_type ())
 #define EASE_STAGE(obj)				(G_TYPE_CHECK_INSTANCE_CAST ((obj), EASE_TYPE_STAGE, EaseStage))
 #define EASE_IS_STAGE(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), EASE_TYPE_STAGE))
 #define EASE_STAGE_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), EASE_TYPE_STAGE, EaseStageClass))
