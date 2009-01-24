@@ -2,7 +2,7 @@
 #define __EASE_STAGE_H__
 
 #include <glib-object.h>
-#include <clutter.h>
+#include <clutter/clutter.h>
 
 #define EASE_TYPE_BAZ             (ease_stage_get_type ())
 #define EASE_STAGE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), EASE_TYPE_STAGE, EaseStage))

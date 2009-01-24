@@ -31,7 +31,7 @@ ease_actor_get_type (void)
                                                &info, 0);
     }
 
-    return type;
+    return iface_type;
 }
 
 gboolean ease_actor_do_message (EaseActor *self, GQuark type, gchar * message)

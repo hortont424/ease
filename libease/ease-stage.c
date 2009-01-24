@@ -3,13 +3,13 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <clutter.h>
+#include <clutter/clutter.h>
 
-static void ease_actor_interface_init (EaseStageInterface *iface);
+static void ease_actor_interface_init (EaseActorInterface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (EaseActor, ease_actor, CLUTTER_TYPE_STAGE,
+G_DEFINE_TYPE_WITH_CODE (EaseStage, ease_stage, CLUTTER_TYPE_STAGE,
 						 G_IMPLEMENT_INTERFACE (EASE_TYPE_ACTOR,
-												ease_actor_interface));
+												ease_actor_interface_init));
 
 static gboolean 
 ease_stage_do_message (EaseActor *self, GQuark type, gchar *message)
