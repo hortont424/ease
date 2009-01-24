@@ -34,12 +34,24 @@ var Miniscule = new Object();
 	 var minus = function(n, m) {
 		 return parseInt(n, 10)-parseInt(m, 10);
 	 }
+	 
+	 var times = function(n, m) {
+		 return parseInt(n, 10) * parseInt(m, 10);
+	 }
+	 
+	 var divide = function(n, m) {
+		 return parseInt(n, 10) / parseInt(m, 10);
+	 }
 
 	 var atomToFunction = function(x) {
 		 if (x === '+')
 			 return plus;
 		 if (x === '-')
 			 return minus;
+		 if (x === '*')
+			 return times;
+		 if (x === '/')
+			 return divide;
 	 }
 
 	 Miniscule.value = function (exp) {
