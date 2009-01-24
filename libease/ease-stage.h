@@ -28,5 +28,5 @@ struct _EaseStageClass
 
 GType ease_stage_get_type (void);
 
-#endif /* __SEED_STAGE_H__ */			\
-		
+#endif /* __SEED_STAGE_H__ */
+

@@ -37,7 +37,7 @@ ease_actor_interface_init (EaseActorInterface *iface)
 static void
 ease_stage_class_init (EaseStageClass *klass)
 {
-	return;
+    return;
 }
 
 static void
