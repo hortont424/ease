@@ -57,7 +57,7 @@ var Miniscule = new Object();
 		 if (x === "send")
 			 return send;
 		 else
-			 return "Stay in your box";
+			 throw new SyntaxError=12();
 	 }
 
 	 Miniscule.expose = function(name, object) {
