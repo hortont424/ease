@@ -64,6 +64,16 @@ var Miniscule = new Object();
 		 exposed[name] = object;
 	 }
 	 
+	 Miniscule.repl = function() {
+		 while (1)
+		 {
+			 a = readline.readline(">> ");
+			 if (a === "quit")
+				 return;
+			 Seed.print(Miniscule.value(Miniscule.parse(a)));
+		 }
+	 }
+	 
 	 Miniscule.value = function (exp) {
 		 return isAtom(exp) ? exp :
 		 atomToFunction(car(exp)) (
