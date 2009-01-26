@@ -20,5 +20,5 @@
  				        anchor_y: "(/ (send this height) 2)",
 				        font_name: "Bitstream Vera Sans 20"
 		        }]
-};
+}
 
