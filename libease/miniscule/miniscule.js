@@ -77,7 +77,8 @@ var Miniscule = new Object();
 	 Miniscule.value = function (exp) {
 		 return isAtom(exp) ? exp :
 		 atomToFunction(car(exp)) (
-			 Miniscule.value(firstSubExp(exp)), Miniscule.value(secondSubExp(exp)));		 
+			 Miniscule.value(firstSubExp(exp)),
+			 Miniscule.value(secondSubExp(exp)));		 
 	 }
 	 
 	 var s = function (x) {

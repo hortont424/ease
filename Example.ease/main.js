@@ -8,6 +8,7 @@ catch (e)
 }
 
 var slides = new Array();
+var parsed_slides = new Array();
 var slide_files = new Array();
 
 var enumerator = (Gio.file_new_for_path("./slides")).enumerate_children("standard::name");
@@ -21,7 +22,13 @@ slide_files.sort();
 for (i in slide_files)
 {
 	slide = slide_files[i];
-	Seed.include("slides/"+slide);
+	slides.push(Gio.simple_read("./slides/"+slide));
 }
+
+for (i in slides)
+{
+	parsed_slides[i] = JSON.parse(slides[i]);
+}
+
 
 
