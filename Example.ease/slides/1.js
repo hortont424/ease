@@ -10,20 +10,20 @@
 		},
 		{
 			"ease_name": "charmander-017",
-			"type": "Ease.TextActor",
-			"text": "Ease",
+			"type": "Ease.ImageActor",
+			"filename": "blobs/Ease-logo.svg",
 			"x": "_(- (/ (send slide width) 2) (/ (send self width) 2))",
-			"y": 0,
-			"font_name": "Bitstream Vera Sans 50",
-			"color": {"red": 255, "green": 141, "blue": 61, "alpha": 255}
+			"y": "_(- (/ (send slide height) 2) (/ (send self height) 2))"
 		},
 		{
 			"ease_name": "charmander-018",
 			"type": "Ease.TextActor",
-			"text": "Hillaribad",
-			"x": 0,
-			"y": 70,
-			"font_name": "Bitstream Vera Sans 20"
+			"text": "Matt Arsenault\nRobb Carr\nTim Horton\nNate Stedman",
+			"font_name": "Bitstream Vera Sans 20",
+			"line_alignment": 1,
+			"x": "_(- (/ (send slide width) 2) (/ (send self width) 2))",
+			"y": "_(+ (- (/ (send slide height) 2) (/ (send self height) 2)) 200)",
+			"color": {"red":255, "green":255, "blue":255, "alpha":255}
 		}],
 	"actions": [
 		{
@@ -35,13 +35,18 @@
 					"direction": "in",
 					"from_direction": "top",
 					"alpha": "Clutter.AnimationMode.EASE_OUT_ELASTIC",
-					"duration": 3000
-				},
+					"duration": 1500
+				}]
+		},
+		{
+			"wait": "time",
+			"duration": 500,
+			"effects":[
 				{
 					"type": "EaseAnimations.Fade",
 					"actor": "charmander-018",
 					"direction": "in",
-					"duration": 3000
+					"duration": 1500
 				}]
 		}]
 }

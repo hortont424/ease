@@ -13,6 +13,7 @@ Ease = imports.gi.Ease;
 Clutter = imports.gi.Clutter;
 GObject = imports.gi.GObject;
 GLib = imports.gi.GLib;
+Pango = imports.gi.Pango;
 
 Seed.include("/home/hortont/src/ease/libease/miniscule/miniscule.js");
 Seed.include("/home/hortont/src/ease/ease-player-animations.js");
@@ -105,9 +106,11 @@ function display_slide(slide_num)
 			eval(type + ".Pre(effect, named_actors[effect.actor])");
 		}
 	
-		// wait
-		
-		Seed.print("Wait: " + action.wait);
+	}
+	
+	for(var i in actions)
+	{
+		var action = actions[i];
 	
 		if(action.wait == "click")
 		{
@@ -118,6 +121,25 @@ function display_slide(slide_num)
 			while(waiting_to_animate)
 				GLib.main_context_iteration();
 		}
+		else if(action.wait == "time")
+		{
+			Seed.print("animate delay: " + action.duration);
+			action.timeline = new Clutter.Timeline();
+			action.timeline.duration = action.duration;
+			action.timeline.signal.completed.connect(doDelayedAnimation, action.effects);
+			action.timeline.start();
+		}
+	}
+}
+
+function doDelayedAnimation(timeline, effects)
+{
+	for(var i in effects)
+	{
+		var effect = effects[i];
+		var type = effect.type;
+
+		eval(type + ".Run(effect, named_actors[effect.actor])");
 	}
 }
 
