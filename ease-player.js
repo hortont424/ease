@@ -121,10 +121,11 @@ function display_slide(slide_num)
 	}
 }
 
-display_slide(0);
-
 stage.width = 1024;
 stage.height = 768;
 stage.show_all();
+
+display_slide(0);
+
 
 Clutter.main();
