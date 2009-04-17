@@ -31,13 +31,13 @@ EaseAnimations.Slide.Pre = function (a, obj)
 	obj.original_x = obj.x;
 	obj.original_y = obj.y;
 	
-	if(a.from_direction == "top")
+	if(a.from_direction.match("top"))
 		obj.y = -obj.height;
-	else if(a.from_direction == "bottom")
+	else if(a.from_direction.match("bottom"))
 		obj.y = stage.height + obj.height;
-	else if(a.from_direction == "left")
+	else if(a.from_direction.match("left"))
 		obj.x = -obj.width;
-	else if(a.from_direction == "right")
+	else if(a.from_direction.match("right"))
 		obj.x = stage.width + obj.width;
 };
 
