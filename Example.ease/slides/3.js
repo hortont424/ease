@@ -31,7 +31,7 @@
 		{
 			"ease_name": "main-text",
 			"type": "Ease.TextActor",
-			"text": "• Libease\n    • Convenience layer on Clutter\n    • Most Ease functionality\n\n• Animation Library\n    • Both slide transitions and object effects",
+			"text": "• Libease\n    • Convenience layer on Clutter\n    • Most Ease functionality\n\n• Animation Library\n    • Both slide transitions and object effects\n\n• Libtruthy\n    • 2D graphs",
 			"font_name": "Bitstream Vera Sans 24",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 160)",
 			"x": 100,
