@@ -23,9 +23,9 @@ Clutter.init(null, null);
 Seed.include("main.js");
 
 var stage = new Ease.Stage();
-//stage.fullscreen = true;
-stage.width=1024;
-stage.height=768;
+stage.fullscreen = true;
+//stage.width=1024;
+//stage.height=768;
 stage.color = {red:0, green:0, blue:0, alpha:255};
 var sn = 0;
 var named_actors = {};
