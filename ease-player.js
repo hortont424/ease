@@ -12,6 +12,7 @@ Gio = imports.gi.Gio;
 Ease = imports.gi.Ease;
 Clutter = imports.gi.Clutter;
 GObject = imports.gi.GObject;
+GLib = imports.gi.GLib;
 
 Seed.include("/home/hortont/src/ease/libease/miniscule/miniscule.js");
 Seed.include("/home/hortont/src/ease/ease-player-animations.js");
