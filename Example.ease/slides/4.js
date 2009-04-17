@@ -31,7 +31,7 @@
 		{
 			"ease_name": "main-text",
 			"type": "Ease.TextActor",
-			"text": "• Editor\n    • Vital to adoption\n    • Requires much more time",
+			"text": "• Editor\n    • Vital to adoption\n    • Requires much more time\n\n• Clutter 0.9 Port\n    • Most animations not currently available\n       because of API changes",
 			"font_name": "Bitstream Vera Sans 24",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 160)",
 			"x": 100,
