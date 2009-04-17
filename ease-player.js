@@ -162,6 +162,10 @@ function display_slide(slide_num)
 			action.timeline.signal.completed.connect(doDelayedAnimation, action.effects);
 			action.timeline.start();
 		}
+		else
+		{
+			doDelayedAnimation(0, action.effects);
+		}
 	}
 }
 

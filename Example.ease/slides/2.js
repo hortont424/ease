@@ -42,6 +42,27 @@
 		"wait": "click",
 		"effects":[
 			{
+				"type": "EaseAnimations.Slide",
+				"actor": "charmander-018",
+				"direction": "left",
+				"from_direction": "left",
+				"alpha": "Clutter.AnimationMode.EASE_OUT_SINE",
+				"duration": 1000
+			},
+			{
+				"type": "EaseAnimations.Slide",
+				"actor": "charmander-019",
+				"direction": "left",
+				"from_direction": "left",
+				"alpha": "Clutter.AnimationMode.EASE_OUT_SINE",
+				"duration": 1000
+			}]
+	},
+	{
+		"wait": "time",
+		"duration": 1500,
+		"effects":[
+			{
 				"type": "EaseAnimations.Scale",
 				"actor": "main-text",
 				"direction": "up",
