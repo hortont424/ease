@@ -123,11 +123,6 @@ function load_slide(slide_num)
 		named_actors[actors[i].ease_name] = actor;
 	}
 	
-	return newSlide
-}
-
-function display_slide(slide_num)
-{
 	for(var i in actions)
 	{
 		var action = actions[i];
@@ -141,6 +136,11 @@ function display_slide(slide_num)
 		}
 	}
 	
+	return newSlide;
+}
+
+function display_slide(slide_num)
+{
 	for(var i in actions)
 	{
 		var action = actions[i];

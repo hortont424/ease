@@ -4,7 +4,7 @@
 		{
 			"ease_name": "background",
 			"type": "Ease.ImageActor",
-			"filename": "blobs/background.jpg",
+			"filename": "blobs/bkg3.png",
 			"x": 0,
 			"y": 0,
 			"width": "_(send slide width)",

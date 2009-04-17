@@ -51,7 +51,36 @@ EaseAnimations.Slide.Run = function (a, obj)
 	obj.anim.timeline.start();
 };
 
+EaseAnimations.Scale = {};
 
+EaseAnimations.Scale.Pre = function (a, obj)
+{
+	/*obj.original_x = obj.x;
+	obj.original_y = obj.y;
+	
+	if(a.from_direction.match("top"))
+		obj.y = -obj.height;
+	else if(a.from_direction.match("bottom"))
+		obj.y = stage.height + obj.height;
+	else if(a.from_direction.match("left"))
+		obj.x = -obj.width;
+	else if(a.from_direction.match("right"))
+		obj.x = stage.width + obj.width;*/
+	obj.opacity = 0;
+	obj.scale_x = 0;
+	obj.scale_y = 0;
+};
+
+EaseAnimations.Scale.Run = function (a, obj)
+{
+	obj.anim = obj.animate(eval(a.alpha), a.duration,
+	{
+		scale_x: [GObject.TYPE_DOUBLE, 1],
+		scale_y: [GObject.TYPE_DOUBLE, 1],
+		opacity: [GObject.TYPE_UCHAR, 255]
+	});
+	obj.anim.timeline.start();
+};
 
 
 

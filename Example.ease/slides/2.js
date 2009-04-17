@@ -4,7 +4,7 @@
 		{
 			"ease_name": "background",
 			"type": "Ease.ImageActor",
-			"filename": "blobs/background.jpg",
+			"filename": "blobs/bkg3.png",
 			"x": 0,
 			"y": 0,
 			"width": "_(send slide width)",
@@ -37,6 +37,18 @@
 			"x": 100,
 			"color": {"red":255, "green":255, "blue":255, "alpha":255}
 		}],
+	"actions": [
+	{
+		"wait": "click",
+		"effects":[
+			{
+				"type": "EaseAnimations.Scale",
+				"actor": "main-text",
+				"direction": "up",
+				"alpha": "Clutter.AnimationMode.EASE_OUT_ELASTIC",
+				"duration": 1500
+			}]
+	}],
 	"transition": {
 		"type": "EaseTransitions.Fade",
 		"direction": "right",
