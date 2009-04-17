@@ -1,3 +1,5 @@
+#!/usr/bin/env seed
+
 /*
  * -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- 
  */
@@ -6,8 +8,10 @@
 // presentation file format, for now. Like, really, actually worse than PowerPoint.
 // Seriously.
 
-Seed.import_namespace("Ease");
-Seed.import_namespace("Clutter");
+Gio = imports.gi.Gio;
+Ease = imports.gi.Ease;
+Clutter = imports.gi.Clutter;
+
 Seed.include("/home/hortont/src/ease/libease/miniscule/miniscule.js");
 
 Clutter.init(null, null);
