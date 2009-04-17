@@ -108,6 +108,8 @@ function display_slide(slide_num)
 		}
 	
 		// wait
+		
+		Seed.print(action.wait);
 	
 		if(action.wait == "click")
 		{
