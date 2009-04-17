@@ -89,7 +89,7 @@
 			}]
 	}],
 	"transition": {
-		"type": "EaseTransitions.Scale",
+		"type": "EaseTransitions.Fade",
 		"direction": "out",
 		"duration": 1000,
 		"alpha": "Clutter.AnimationMode.EASE_IN_SINE"
