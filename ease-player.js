@@ -21,61 +21,103 @@ Clutter.init(null, null);
 Seed.include("main.js");
 
 var stage = new Ease.Stage();
-var actors = parsed_slides[0].actors;
-var actions = parsed_slides[0].actions;
-Miniscule.expose("slide",stage);
+var sn = 0;
 var named_actors = {};
+var waiting_to_animate = false;
+var wait_effects = [];
 
-for(var i in actors)
+stage.signal.key_release_event.connect(function(a,e,u)
 {
-    var actor = eval("new " + actors[i].type + "();");
-	stage.add_actor(actor);
-	
-	var deferCalculation = {};
-
-	for(var m in actors[i])
+	if(e.key.keyval == 32)
 	{
-		Miniscule.expose("self", actor);
-
-		if(actors[i][m][0] == "_")
-		    deferCalculation[m] = actors[i][m].slice(1);
+		if(waiting_to_animate)
+		{
+			for(var i in wait_effects)
+			{
+				var effect = wait_effects[i];
+				var type = effect.type;
+		
+				eval(type + ".Run(effect, named_actors[effect.actor])");
+			}
+			
+			waiting_to_animate = false;
+		}
 		else
-	        actor[m] = actors[i][m];
-	}
-
-	actor.show();
-
-	for(var m in deferCalculation)
-	{
-	    actor[m] = Miniscule.eval(deferCalculation[m]);
+		{
+			//transition to slide
+			display_slide(++sn);
+		}
 	}
 	
-	named_actors[actors[i].ease_name] = actor;
-}
+	return true;
+});
 
-stage.width = 1024;
-stage.height = 768;
-stage.show_all();
-
-for(var i in actions)
+function display_slide(slide_num)
 {
-	var action = actions[i];
-	
-	for(var i in action.effects)
+	for(var i in named_actors)
+		stage.remove_actor(named_actors[i]);
+
+	var actors = parsed_slides[slide_num].actors;
+	var actions = parsed_slides[slide_num].actions;
+	Miniscule.expose("slide",stage);
+	named_actors = {};
+
+	stage.width = 1024;
+	stage.height = 768;
+	stage.show_all();
+
+	Clutter.main();
+
+	for(var i in actors)
 	{
-		var effect = action.effects[i];
-		var type = effect.type;
-		
-		eval(type + ".Pre(effect, named_actors[effect.actor])");
+		var actor = eval("new " + actors[i].type + "();");
+		stage.add_actor(actor);
+	
+		var deferCalculation = {};
+
+		for(var m in actors[i])
+		{
+			Miniscule.expose("self", actor);
+
+			if(actors[i][m][0] == "_")
+				deferCalculation[m] = actors[i][m].slice(1);
+			else
+			    actor[m] = actors[i][m];
+		}
+
+		actor.show();
+
+		for(var m in deferCalculation)
+		{
+			actor[m] = Miniscule.eval(deferCalculation[m]);
+		}
+	
+		named_actors[actors[i].ease_name] = actor;
 	}
-	
-	for(var i in action.effects)
+
+	for(var i in actions)
 	{
-		var effect = action.effects[i];
-		var type = effect.type;
+		var action = actions[i];
+	
+		for(var i in action.effects)
+		{
+			var effect = action.effects[i];
+			var type = effect.type;
 		
-		eval(type + ".Run(effect, named_actors[effect.actor])");
+			eval(type + ".Pre(effect, named_actors[effect.actor])");
+		}
+	
+		// wait
+	
+		if(action.wait == "click")
+		{
+			waiting_to_animate = true;
+			wait_effects = action.effects;
+			// HANG
+			while(waiting_to_animate)
+				GLib.main_context_iteration();
+		}
 	}
 }
 
-Clutter.main();
+display_slide(0);
