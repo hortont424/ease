@@ -50,6 +50,12 @@
 					"direction": "in",
 					"duration": 1500
 				}]
-		}]
+		}],
+	"transition": {
+		"type": "EaseTransitions.Push",
+		"direction": "right",
+		"duration": 1000,
+		"alpha": "Clutter.AnimationMode.EASE_IN_SINE"
+	}
 }
 

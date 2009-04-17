@@ -58,16 +58,18 @@ stage.signal.key_release_event.connect(function(a,e,u)
 			stage.add_actor(thisSlide);
 			stage.show_all();
 			
-			EaseTransitions.Push({direction:"right",
-							 	 duration:1000,
-						 		 a:oldSlide,
-					 			 b:thisSlide,
-					 			 alpha:Clutter.AnimationMode.EASE_IN_SINE
-					 			 }).signal.completed.connect(function ()
-				 				 {
-				 				 	stage.remove_actor(oldSlide);
-			 						display_slide(sn);
-								 });
+			tran_f = eval(parsed_slides[sn-1].transition.type);
+			
+			tran_f({direction:parsed_slides[sn-1].transition.direction,
+					duration:parsed_slides[sn-1].transition.duration,
+		 		 	a:oldSlide,
+	 			 	b:thisSlide,
+	 			 	alpha:eval(parsed_slides[sn-1].transition.alpha)
+	 			 	}).signal.completed.connect(function ()
+ 				 	{
+ 				 		stage.remove_actor(oldSlide);
+						display_slide(sn);
+				 	});
 		}
 	}
 	
