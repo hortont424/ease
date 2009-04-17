@@ -24,6 +24,7 @@ Seed.include("main.js");
 
 var stage = new Ease.Stage();
 stage.fullscreen = true;
+stage.color = {red:0, green:0, blue:0, alpha:255};
 var sn = 0;
 var named_actors = {};
 var waiting_to_animate = false;
@@ -59,6 +60,9 @@ stage.signal.key_release_event.connect(function(a,e,u)
 
 function display_slide(slide_num)
 {
+	if(slide_num >= parsed_slides.length)
+		Seed.quit();
+	
 	Seed.print("Display Slide " + slide_num);
 	
 	thisSlide = new Clutter.Group;
