@@ -4,7 +4,7 @@
 		{
 			"ease_name": "background",
 			"type": "Ease.ImageActor",
-			"filename": "blobs/blue.jpg",
+			"filename": "blobs/Pink is an optimal colour.svg",
 			"x": 0,
 			"y": 0,
 			"width": "_(send slide width)",

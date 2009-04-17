@@ -4,7 +4,7 @@
 		{
 			"ease_name": "background",
 			"type": "Ease.ImageActor",
-			"filename": "blobs/blue.jpg",
+			"filename": "blobs/Red.svg",
 			"x": 0,
 			"y": 0,
 			"width": "_(send slide width)",
