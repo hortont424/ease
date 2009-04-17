@@ -31,24 +31,51 @@ EaseAnimations.Slide.Pre = function (a, obj)
 	obj.original_x = obj.x;
 	obj.original_y = obj.y;
 	
-	if(a.from_direction.match("top"))
-		obj.y = -obj.height;
-	else if(a.from_direction.match("bottom"))
-		obj.y = stage.height + obj.height;
-	else if(a.from_direction.match("left"))
-		obj.x = -obj.width;
-	else if(a.from_direction.match("right"))
-		obj.x = stage.width + obj.width;
+	if(a.direction == "in")
+	{
+		if(a.from_direction.match("top"))
+			obj.y = -obj.height;
+		else if(a.from_direction.match("bottom"))
+			obj.y = stage.height + obj.height;
+		else if(a.from_direction.match("left"))
+			obj.x = -obj.width;
+		else if(a.from_direction.match("right"))
+			obj.x = stage.width + obj.width;
+	}
 };
 
 EaseAnimations.Slide.Run = function (a, obj)
 {
-	obj.anim = obj.animate(eval(a.alpha), a.duration,
+	if(a.direction == "in")
 	{
-		x: [GObject.TYPE_INT, obj.original_x],
-		y: [GObject.TYPE_INT, obj.original_y]
-	});
-	obj.anim.timeline.start();
+		obj.anim = obj.animate(eval(a.alpha), a.duration,
+		{
+			x: [GObject.TYPE_INT, obj.original_x],
+			y: [GObject.TYPE_INT, obj.original_y]
+		});
+		obj.anim.timeline.start();
+	}
+	else if(a.direction == "out")
+	{
+		var newx = obj.x;
+		var newy = obj.y;
+		
+		if(a.from_direction.match("top"))
+			newy = -obj.height;
+		else if(a.from_direction.match("bottom"))
+			newy = stage.height + obj.height;
+		else if(a.from_direction.match("left"))
+			newx = -obj.width;
+		else if(a.from_direction.match("right"))
+			newx = stage.width + obj.width;
+		
+		obj.anim = obj.animate(eval(a.alpha), a.duration,
+		{
+			x: [GObject.TYPE_INT, newx],
+			y: [GObject.TYPE_INT, newy]
+		});
+		obj.anim.timeline.start();
+	}
 };
 
 EaseAnimations.Scale = {};
