@@ -6,7 +6,9 @@
 			"type": "Ease.ImageActor",
 			"filename": "blobs/bkg.png",
 			"x": 0,
-			"y": 0
+			"y": 0,
+			"width": "_(send slide width)",
+			"height": "_(send slide height)",
 		},
 		{
 			"ease_name": "charmander-017",
@@ -22,7 +24,7 @@
 			"font_name": "Bitstream Vera Sans 20",
 			"line_alignment": 1,
 			"x": "_(- (/ (send slide width) 2) (/ (send self width) 2))",
-			"y": "_(+ (- (/ (send slide height) 2) (/ (send self height) 2)) 200)",
+			"y": "_(+ (- (/ (send slide height) 2) (/ (send self height) 2)) (send charmander-017 height))",
 			"color": {"red":255, "green":255, "blue":255, "alpha":255}
 		}],
 	"actions": [

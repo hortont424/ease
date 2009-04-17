@@ -23,10 +23,12 @@ Clutter.init(null, null);
 Seed.include("main.js");
 
 var stage = new Ease.Stage();
+stage.fullscreen = true;
 var sn = 0;
 var named_actors = {};
 var waiting_to_animate = false;
 var wait_effects = [];
+var thisSlide;
 
 stage.signal.key_release_event.connect(function(a,e,u)
 {
@@ -47,6 +49,7 @@ stage.signal.key_release_event.connect(function(a,e,u)
 		else
 		{
 			//transition to slide
+			stage.remove_actor(thisSlide);
 			display_slide(++sn);
 		}
 	}
@@ -58,8 +61,7 @@ function display_slide(slide_num)
 {
 	Seed.print("Display Slide " + slide_num);
 	
-	for(var i in named_actors)
-		stage.remove_actor(named_actors[i]);
+	thisSlide = new Clutter.Group;
 
 	var actors = parsed_slides[slide_num].actors;
 	var actions = parsed_slides[slide_num].actions;
@@ -70,7 +72,7 @@ function display_slide(slide_num)
 	{
 		Seed.print("Add " + actors[i].type);
 		var actor = eval("new " + actors[i].type + "();");
-		stage.add_actor(actor);
+		thisSlide.add_actor(actor);
 	
 		var deferCalculation = {};
 
@@ -85,6 +87,8 @@ function display_slide(slide_num)
 		}
 
 		actor.show();
+		
+		Miniscule.expose(actors[i].ease_name, actor);
 
 		for(var m in deferCalculation)
 		{
@@ -93,6 +97,9 @@ function display_slide(slide_num)
 	
 		named_actors[actors[i].ease_name] = actor;
 	}
+	
+	stage.add_actor(thisSlide);
+	stage.show_all();
 
 	for(var i in actions)
 	{
@@ -105,7 +112,6 @@ function display_slide(slide_num)
 		
 			eval(type + ".Pre(effect, named_actors[effect.actor])");
 		}
-	
 	}
 	
 	for(var i in actions)
@@ -143,8 +149,8 @@ function doDelayedAnimation(timeline, effects)
 	}
 }
 
-stage.width = 1024;
-stage.height = 768;
+//stage.width = 1024;
+//stage.height = 768;
 stage.show_all();
 
 display_slide(0);
