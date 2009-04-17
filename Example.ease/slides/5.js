@@ -66,10 +66,10 @@
 			}]
 	}],
 	"transition": {
-		"type": "EaseTransitions.Scale",
-		"direction": "out",
-		"duration": 1000,
-		"alpha": "Clutter.AnimationMode.EASE_IN_SINE"
+		"type": "EaseTransitions.Push",
+		"direction": "down",
+		"duration": 2000,
+		"alpha": "Clutter.AnimationMode.EASE_OUT_BOUNCE"
 	}
 }
 
