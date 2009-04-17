@@ -26,12 +26,6 @@ var named_actors = {};
 var waiting_to_animate = false;
 var wait_effects = [];
 
-stage.width = 1024;
-stage.height = 768;
-stage.show_all();
-
-Clutter.main();
-
 stage.signal.key_release_event.connect(function(a,e,u)
 {
 	if(e.key.keyval == 32)
@@ -127,3 +121,9 @@ function display_slide(slide_num)
 }
 
 display_slide(0);
+
+stage.width = 1024;
+stage.height = 768;
+stage.show_all();
+
+Clutter.main();
