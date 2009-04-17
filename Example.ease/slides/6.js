@@ -17,7 +17,7 @@
 			"text": "http://hortont.com/ease/wiki",
 			"font_name": "Bitstream Vera Sans 40",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 82)",
-			"x": 102,
+			"x": "_(+ (- (/ (send slide width) 2) (/ (send self width) 2)) 2)",
 			"color": {"red":0, "green":0, "blue":0, "alpha":128}
 		},
 		{
@@ -27,7 +27,7 @@
 			"text": "http://hortont.com/ease/wiki",
 			"font_name": "Bitstream Vera Sans 40",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 80)",
-			"x": 100,
+			"x": "_(- (/ (send slide width) 2) (/ (send self width) 2))",
 			"color": {"red":255, "green":255, "blue":255, "alpha":255}
 		}],
 	"actions": [
