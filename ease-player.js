@@ -60,6 +60,8 @@ stage.signal.key_release_event.connect(function(a,e,u)
 
 function display_slide(slide_num)
 {
+	Seed.print("Display Slide " + slide_num);
+	
 	for(var i in named_actors)
 		stage.remove_actor(named_actors[i]);
 
@@ -70,6 +72,7 @@ function display_slide(slide_num)
 
 	for(var i in actors)
 	{
+		Seed.print("Add " + actors[i].type);
 		var actor = eval("new " + actors[i].type + "();");
 		stage.add_actor(actor);
 	
@@ -109,7 +112,7 @@ function display_slide(slide_num)
 	
 		// wait
 		
-		Seed.print(action.wait);
+		Seed.print("Wait: " + action.wait);
 	
 		if(action.wait == "click")
 		{
