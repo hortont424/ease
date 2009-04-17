@@ -1,5 +1,5 @@
 {
-	"name": "2",
+	"name": "3",
 	"actors": [
 		{
 			"ease_name": "background",
@@ -31,17 +31,17 @@
 		{
 			"ease_name": "main-text",
 			"type": "Ease.TextActor",
-			"text": "• Viewer\n    • Semi-cross-platform (runs on Linux & OS X)\n    • Seed-based, with some C\n    • Depends on WebKit and Clutter\n\n• Miniscule\n    • Small s-expression evaluator\n    • Used to address security issues",
+			"text": "• Libease\n    • Convenience layer on Clutter\n    • Most Ease functionality\n\n• Animation Library\n    • Both slide transitions and object effects",
 			"font_name": "Bitstream Vera Sans 24",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 160)",
 			"x": 100,
 			"color": {"red":255, "green":255, "blue":255, "alpha":255}
 		}],
 	"transition": {
-		"type": "EaseTransitions.Fade",
-		"direction": "right",
+		"type": "EaseTransitions.Scale",
+		"direction": "in",
 		"duration": 1000,
-		"alpha": "Clutter.AnimationMode.LINEAR"
+		"alpha": "Clutter.AnimationMode.EASE_IN_SINE"
 	}
 }
 

@@ -23,7 +23,9 @@ Clutter.init(null, null);
 Seed.include("main.js");
 
 var stage = new Ease.Stage();
-stage.fullscreen = true;
+//stage.fullscreen = true;
+stage.width=1024;
+stage.height=768;
 stage.color = {red:0, green:0, blue:0, alpha:255};
 var sn = 0;
 var named_actors = {};
@@ -112,12 +114,12 @@ function load_slide(slide_num)
 		actor.show();
 		
 		Miniscule.expose(actors[i].ease_name, actor);
-
+		
 		for(var m in deferCalculation)
 		{
 			actor[m] = Miniscule.eval(deferCalculation[m]);
 		}
-	
+		
 		named_actors[actors[i].ease_name] = actor;
 	}
 	
@@ -174,8 +176,6 @@ function doDelayedAnimation(timeline, effects)
 	}
 }
 
-//stage.width = 1024;
-//stage.height = 768;
 stage.show_all();
 
 thisSlide = load_slide(0);
