@@ -26,6 +26,12 @@ var named_actors = {};
 var waiting_to_animate = false;
 var wait_effects = [];
 
+stage.width = 1024;
+stage.height = 768;
+stage.show_all();
+
+Clutter.main();
+
 stage.signal.key_release_event.connect(function(a,e,u)
 {
 	if(e.key.keyval == 32)
@@ -61,12 +67,6 @@ function display_slide(slide_num)
 	var actions = parsed_slides[slide_num].actions;
 	Miniscule.expose("slide",stage);
 	named_actors = {};
-
-	stage.width = 1024;
-	stage.height = 768;
-	stage.show_all();
-
-	Clutter.main();
 
 	for(var i in actors)
 	{
