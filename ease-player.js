@@ -13,6 +13,7 @@ Ease = imports.gi.Ease;
 Clutter = imports.gi.Clutter;
 
 Seed.include("/home/hortont/src/ease/libease/miniscule/miniscule.js");
+Seed.include("/home/hortont/src/ease/ease-player-animations.js");
 
 Clutter.init(null, null);
 
