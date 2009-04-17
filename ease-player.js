@@ -30,6 +30,7 @@ var named_actors = {};
 var waiting_to_animate = false;
 var wait_effects = [];
 var thisSlide;
+var actors, actions;
 
 stage.signal.key_release_event.connect(function(a,e,u)
 {
@@ -50,25 +51,40 @@ stage.signal.key_release_event.connect(function(a,e,u)
 		else
 		{
 			//transition to slide
-			stage.remove_actor(thisSlide);
-			display_slide(++sn);
+			//
+			oldSlide = thisSlide;
+			thisSlide = load_slide(++sn);
+			
+			stage.add_actor(thisSlide);
+			stage.show_all();
+			
+			EaseTransitions.Push({direction:"right",
+							 	 duration:1000,
+						 		 a:oldSlide,
+					 			 b:thisSlide,
+					 			 alpha:Clutter.AnimationMode.EASE_IN_SINE
+					 			 }).signal.completed.connect(function ()
+				 				 {
+				 				 	stage.remove_actor(oldSlide);
+			 						display_slide(sn);
+								 });
 		}
 	}
 	
 	return true;
 });
 
-function display_slide(slide_num)
+function load_slide(slide_num)
 {
 	if(slide_num >= parsed_slides.length)
 		Seed.quit();
 	
 	Seed.print("Display Slide " + slide_num);
 	
-	thisSlide = new Clutter.Group;
+	var newSlide = new Clutter.Group;
 
-	var actors = parsed_slides[slide_num].actors;
-	var actions = parsed_slides[slide_num].actions;
+	actors = parsed_slides[slide_num].actors;
+	actions = parsed_slides[slide_num].actions;
 	Miniscule.expose("slide",stage);
 	named_actors = {};
 
@@ -76,7 +92,7 @@ function display_slide(slide_num)
 	{
 		Seed.print("Add " + actors[i].type);
 		var actor = eval("new " + actors[i].type + "();");
-		thisSlide.add_actor(actor);
+		newSlide.add_actor(actor);
 	
 		var deferCalculation = {};
 
@@ -102,9 +118,11 @@ function display_slide(slide_num)
 		named_actors[actors[i].ease_name] = actor;
 	}
 	
-	stage.add_actor(thisSlide);
-	stage.show_all();
+	return newSlide
+}
 
+function display_slide(slide_num)
+{
 	for(var i in actions)
 	{
 		var action = actions[i];
@@ -157,6 +175,9 @@ function doDelayedAnimation(timeline, effects)
 //stage.height = 768;
 stage.show_all();
 
+thisSlide = load_slide(0);
+stage.add_actor(thisSlide);
+stage.show_all();
 display_slide(0);
 
 

@@ -50,3 +50,69 @@ EaseAnimations.Slide.Run = function (a, obj)
 	});
 	obj.anim.timeline.start();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EaseTransitions = {};
+
+EaseTransitions.Push = function (t)
+{
+	with(t)
+	{
+		var sign = (direction == "up" || direction == "left") ? -1 : 1;
+
+		if(direction == "up" || direction == "down")
+		{
+			b.y = stage.height * (-sign);
+			
+			a.anim = a.animate(alpha, duration,
+			{
+				x: [GObject.TYPE_INT, 0],
+				y: [GObject.TYPE_INT, stage.height * sign]
+			});
+			a.anim.timeline.start();
+		}
+		else
+		{
+			b.x = stage.width * sign;
+				
+			a.anim = a.animate(alpha, duration,
+			{
+				x: [GObject.TYPE_INT, stage.width * (-sign)],
+				y: [GObject.TYPE_INT, 0]
+			});
+			a.anim.timeline.start();
+		}
+
+		b.anim = b.animate(alpha, duration,
+		{
+			x: [GObject.TYPE_INT, 0],
+			y: [GObject.TYPE_INT, 0]
+		});
+		b.anim.timeline.start();
+	}
+	
+	return t.b.anim.timeline;
+}
