@@ -22,16 +22,18 @@
 		{
 			"effects":[
 				{
-					"type": "Ease.EffectSlide",
+					"type": "EaseAnimations.Slide",
 					"actor": "charmander-017",
 					"direction": "in",
-					"from-direction": "top",
-					"alpha": "Clutter.AnimationMode.EASE_OUT_ELASTIC"
+					"from_direction": "top",
+					"alpha": "Clutter.AnimationMode.EASE_OUT_ELASTIC",
+					"duration": 1500
 				},
 				{
-					"type": "Ease.EffectFade",
+					"type": "EaseAnimations.Fade",
 					"actor": "charmander-018",
-					"direction": "in"
+					"direction": "in",
+					"duration": 1500
 				}]
 		}]
 }
