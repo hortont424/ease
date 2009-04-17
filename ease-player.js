@@ -31,15 +31,13 @@ for(var i in actors)
 
 	for(var m in actors[i])
 	{
-		Miniscule.expose("self", actor); // lololol
+		Miniscule.expose("self", actor);
 
 		if(actors[i][m][0] == "_")
 		    deferCalculation[m] = actors[i][m].slice(1);
 		else
 	        actor[m] = actors[i][m];
 	}
-
-	Seed.print(JSON.stringify(actor.color));
 
 	actor.show();
 
