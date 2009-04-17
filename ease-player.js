@@ -111,6 +111,7 @@ function display_slide(slide_num)
 	
 		if(action.wait == "click")
 		{
+			Seed.print("waiting to animate");
 			waiting_to_animate = true;
 			wait_effects = action.effects;
 			// HANG
