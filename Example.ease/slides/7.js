@@ -11,8 +11,19 @@
 			"height": "_(send slide height)",
 		},
 		{
+			"ease_name": "main-text2",
+			"type": "Ease.TextActor",
+			"line_alignment": 1,
+			"text": "http://hortont.com/ease/wiki\n\nhttp://live.gnome.org/Seed",
+			"font_name": "Bitstream Vera Sans 40",
+			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 82)",
+			"x": 102,
+			"color": {"red":0, "green":0, "blue":0, "alpha":128}
+		},
+		{
 			"ease_name": "main-text",
 			"type": "Ease.TextActor",
+			"line_alignment": 1,
 			"text": "http://hortont.com/ease/wiki\n\nhttp://live.gnome.org/Seed",
 			"font_name": "Bitstream Vera Sans 40",
 			"y": "_(+ (- (/ (- (send slide height) (+ (send charmander-018 height) 100)) 2) (/ (send self height) 2)) 80)",
@@ -27,6 +38,13 @@
 			{
 				"type": "EaseAnimations.Scale",
 				"actor": "main-text",
+				"direction": "in",
+				"alpha": "Clutter.AnimationMode.EASE_OUT_SINE",
+				"duration": 1000
+			},
+			{
+				"type": "EaseAnimations.Scale",
+				"actor": "main-text2",
 				"direction": "in",
 				"alpha": "Clutter.AnimationMode.EASE_OUT_SINE",
 				"duration": 1000
