@@ -56,6 +56,7 @@ stage.signal.key_release_event.connect(function(a,e,u)
 			thisSlide = load_slide(++sn);
 			
 			stage.add_actor(thisSlide);
+			oldSlide.raise_top();
 			stage.show_all();
 			
 			tran_f = eval(parsed_slides[sn-1].transition.type);

@@ -116,3 +116,41 @@ EaseTransitions.Push = function (t)
 	
 	return t.b.anim.timeline;
 }
+
+EaseTransitions.Scale = function(t)
+{
+	with(t)
+	{
+		a.anchor_x = a.width/2;
+		a.anchor_y = a.height/2;
+
+		a.x = stage.width/2;
+		a.y = stage.height/2;
+
+		var s = (direction == "in") ? 0 : 10;
+		
+		a.anim = a.animate(alpha, duration,
+		{
+			scale_x: [GObject.TYPE_DOUBLE, s],
+			scale_y: [GObject.TYPE_DOUBLE, s],
+			opacity: [GObject.TYPE_UCHAR, 0]
+		});
+		a.anim.timeline.start();
+	}
+	
+	return t.a.anim.timeline;
+}
+
+EaseTransitions.Fade = function(t)
+{
+	with(t)
+	{
+		a.anim = a.animate(alpha, duration,
+		{
+			opacity: [GObject.TYPE_UCHAR, 0]
+		});
+		a.anim.timeline.start();
+	}
+	
+	return t.a.anim.timeline;
+}
