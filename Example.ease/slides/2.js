@@ -46,7 +46,7 @@
 				"actor": "main-text",
 				"direction": "up",
 				"alpha": "Clutter.AnimationMode.EASE_OUT_ELASTIC",
-				"duration": 1500
+				"duration": 2000
 			}]
 	}],
 	"transition": {

@@ -66,7 +66,14 @@ EaseAnimations.Scale.Pre = function (a, obj)
 		obj.x = -obj.width;
 	else if(a.from_direction.match("right"))
 		obj.x = stage.width + obj.width;*/
-	obj.opacity = 0;
+	
+	obj.anchor_x = obj.width/2;
+	obj.anchor_y = obj.height/2;
+
+	obj.x = obj.x + (obj.width/2);
+	obj.y = obj.y + (obj.height/2);
+	
+	//obj.opacity = 0;
 	obj.scale_x = 0;
 	obj.scale_y = 0;
 };
@@ -77,7 +84,7 @@ EaseAnimations.Scale.Run = function (a, obj)
 	{
 		scale_x: [GObject.TYPE_DOUBLE, 1],
 		scale_y: [GObject.TYPE_DOUBLE, 1],
-		opacity: [GObject.TYPE_UCHAR, 255]
+		//opacity: [GObject.TYPE_UCHAR, 255]
 	});
 	obj.anim.timeline.start();
 };
